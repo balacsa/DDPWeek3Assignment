@@ -1,0 +1,33 @@
+---
+title: "Week 3 Assignment"
+author: "Laszlo Bak"
+date: "January 24, 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r  warning=FALSE, error=FALSE, echo=FALSE, message=FALSE}
+library(ggplot2)
+library(plotly)
+```
+
+## Introduction
+
+This is a sample web page presentation using R Markdown that features a plot created with Plotly. 
+
+Next slide you:
+
+- you can see how depends fuel consumption on horsepower
+- you can switch on or off number of cylinders of engine
+- the plot colored by number of cylinders
+
+## MilesPerGalon vs horsepower plot
+
+```{r carsPlot, warning=FALSE}
+cars<-mtcars
+cars$cyl_name<-paste("Cyl:",cars$cyl)
+plot_ly(data = cars, x = ~hp, y = ~mpg, color = ~cyl_name, type = "scatter" ,mode="markers")
+```
